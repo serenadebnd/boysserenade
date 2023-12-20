@@ -1,0 +1,306 @@
+body, html {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    background-image: url('background.jpg');
+
+    
+    /* Full screen */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+@font-face {
+    font-family: 'YoungSerif'; /* Give your font a name to reference it by */
+    src: url('fonts/YoungSerif-Regular.ttf') format('truetype'); /* Adjust the path as necessary */
+}
+
+@font-face {
+    font-family: 'LOTTERIACHAB';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/LOTTERIACHAB.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'ChangwonDangam'; /* Give your font a name to reference it by */
+    src: url('fonts/ChangwonDangam.ttf') format('truetype'); /* Adjust the path as necessary */
+}
+
+.header-title {
+    font-family: 'YoungSerif', sans-serif;
+    font-size: 75px;
+    color: #286efe;
+    position: absolute;
+    top: 20px; /* Adjust if you want more or less space from the top */
+    left: 50%; /* Start at 50% of the width from the left */
+    transform: translateX(-50%); /* Move back 50% of its own width */
+    z-index: 10;
+    text-align: center; /* Ensure text within the element is centered */
+    line-height: 1.1;
+}
+
+.camera-container {
+    position: relative;
+    width: 640px; /* The width of the camera border */
+    height: 480px; /* The height of the camera border */
+    top: 180px; /* Position the container lower on the page */
+}
+
+.changeable-image {
+    position: absolute;
+    top: 30px; /* Added 'px' to define the unit */
+    left: -10px; /* This value is negative, which moves the image to the left */
+    width: 60%; /* Adjust so the image fits well within the border */
+    height: auto; /* Maintain aspect ratio */
+    z-index: 1; /* Ensure the image is below the camera border */
+}
+
+
+
+.camera-border {
+    position: absolute;
+    width: 191.4%; /* Match the container size */
+    height: 174%; /* Match the container size */
+    top: -201.5px;
+    left: 20px;
+    z-index: 2; /* Above the changeable image */
+}
+
+
+
+
+.nav-button {
+    font-family: 'LOTTERIACHAB', sans-serif; /* Use the name you defined in @font-face */
+    position: absolute;
+    top: 50%;  /* Center vertically */
+    transform: translateY(-50%);
+    font-size: 94px; /* Adjust the font size as needed */
+    color: #5385fe; /* Adjust the color as needed */
+    cursor: pointer;
+    z-index: 3; /* Above the changeable image and camera border */
+    user-select: none; /* Prevent text selection */
+}
+
+#prev-button {
+    left: 35px; /* Adjust as needed to position inside the camera frame */
+}
+
+#next-button {
+    right: -90px; /* Adjust as needed to position inside the camera frame */
+}
+
+
+#changeable-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 90%; /* Adjust based on the camera screen size */
+    max-height: 90%; /* Adjust based on the camera screen size */
+}
+
+#pink-book {
+    position: fixed; /* or absolute, depending on layout */
+    right: 70px; /* Adjust this to move horizontally */
+    bottom: 195px; /* Adjust this to move vertically */
+    width: 500px; /* Set the width of the pink book image */
+    height: auto; /* Keep the height auto to maintain aspect ratio */
+    cursor: pointer; /* Change cursor to pointer to indicate it's clickable */
+    z-index: 999; /* Ensure it's below the flipbook container */
+}
+
+
+#flipbook-container {
+    position: fixed; /* Keeps the flipbook in place */
+    left: 50%; /* Center horizontally */
+    top: 50%; /* Center vertically */
+    transform: translate(-50%, -50%); /* Offset the position for true centering */
+    width: 100px; /* Width of the flipbook */
+    height: auto; /* Height of the flipbook */
+    z-index: 1000; /* High z-index to ensure it's above other content */
+    display: none; /* Initially hidden */
+}
+
+#back-to-home {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    cursor: pointer;
+    font-size: 24px;
+    text-decoration: none;
+    color: black;
+    z-index: 10000; /* High value to ensure it's on top */
+  }
+#clickable-icons1 img {
+    cursor: pointer;
+    /* additional styling as needed */
+}
+#clickable-icons2 img {
+    cursor: pointer;
+    /* additional styling as needed */
+}
+#clickable-icons3 img {
+    cursor: pointer;
+    /* additional styling as needed */
+}
+#clickable-icons4 img {
+    cursor: pointer;
+    /* additional styling as needed */
+}
+#clickable-icons5 img {
+    cursor: pointer;
+    /* additional styling as needed */
+}
+#clickable-icons6 img {
+    cursor: pointer;
+    /* additional styling as needed */
+}
+
+#image-display {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000; /* Above other content */
+    /* additional styling as needed */
+}
+
+#image-display span {
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    right: 0;
+    /* additional styling as needed */
+}
+/* Individual styles for each icon */
+#icon1 {
+    position: fixed;
+    right: 1100px;
+    bottom: -20px;
+    width: 210px; /* Size of the icon */
+    height: auto;
+    /* Additional individual styling as needed */
+}
+
+#icon2 {
+    position: fixed;
+    right: 890px;
+    bottom: -15px;
+    width: 260px; /* Size of the icon */
+    height: auto;
+    /* Additional individual styling as needed */
+}
+#icon3 {
+    position: fixed;
+    right: 720px;
+    bottom: -35px;
+    width: 225px; /* Size of the icon */
+    height: auto;
+    /* Additional individual styling as needed */
+}
+
+#icon4 {
+    position: fixed;
+    right: 550px;
+    bottom: -10px;
+    width: 175px; /* Size of the icon */
+    height: auto;
+    /* Additional individual styling as needed */
+}
+
+#icon5 {
+    position: fixed;
+    right: 340px;
+    bottom: -10px;
+    width: 200px; /* Size of the icon */
+    height: auto;
+    /* Additional individual styling as needed */
+}
+
+#icon6 {
+    position: fixed;
+    right: 100px;
+    bottom: -40px;
+    width: 280px; /* Size of the icon */
+    height: auto;
+    /* Additional individual styling as needed */
+}
+.sungho-title {
+    font-family: 'ChangwonDangam', sans-serif;
+    font-size: 25px;
+    color: #286efe;
+    position: absolute;
+    bottom: 170px; /* Adjust if you want more or less space from the top */
+    right:1060px; /* Start at 50% of the width from the left */
+    transform: translateX(-50%); /* Move back 50% of its own width */
+    z-index: 10;
+    text-align: center; /* Ensure text within the element is centered */
+    line-height: 1.1;
+}
+.riwoo-title {
+    font-family: 'ChangwonDangam', sans-serif;
+    font-size: 25px;
+    color: #286efe;
+    position: absolute;
+    bottom: 170px; /* Adjust if you want more or less space from the top */
+    right: 900px; /* Start at 50% of the width from the left */
+    transform: translateX(-50%); /* Move back 50% of its own width */
+    z-index: 10;
+    text-align: center; /* Ensure text within the element is centered */
+    line-height: 1.1;
+}
+
+.jaehyun-title {
+    font-family: 'ChangwonDangam', sans-serif;
+    font-size: 25px;
+    color: #286efe;
+    position: absolute;
+    bottom: 170px; /* Adjust if you want more or less space from the top */
+    right: 670px; /* Start at 50% of the width from the left */
+    transform: translateX(-50%); /* Move back 50% of its own width */
+    z-index: 10;
+    text-align: center; /* Ensure text within the element is centered */
+    line-height: 1.1;
+}
+.taesan-title {
+    font-family: 'ChangwonDangam', sans-serif;
+    font-size: 25px;
+    color: #286efe;
+    position: absolute;
+    bottom: 170px; /* Adjust if you want more or less space from the top */
+    right: 490px; /* Start at 50% of the width from the left */
+    transform: translateX(-50%); /* Move back 50% of its own width */
+    z-index: 10;
+    text-align: center; /* Ensure text within the element is centered */
+    line-height: 1.1;
+}
+.leehan-title {
+    font-family: 'ChangwonDangam', sans-serif;
+    font-size: 25px;
+    color: #286efe;
+    position: absolute;
+    bottom: 170px; /* Adjust if you want more or less space from the top */
+    right: 300px; /* Start at 50% of the width from the left */
+    transform: translateX(-50%); /* Move back 50% of its own width */
+    z-index: 10;
+    text-align: center; /* Ensure text within the element is centered */
+    line-height: 1.1;
+}
+.woonhak-title {
+    font-family: 'ChangwonDangam', sans-serif;
+    font-size: 25px;
+    color: #286efe;
+    position: absolute;
+    bottom: 170px; /* Adjust if you want more or less space from the top */
+    right: 80px; /* Start at 50% of the width from the left */
+    transform: translateX(-50%); /* Move back 50% of its own width */
+    z-index: 10;
+    text-align: center; /* Ensure text within the element is centered */
+    line-height: 1.1;
+}
+* {
+    cursor: url('https://cur.cursors-4u.net/holidays/hol-2/hol148.ani'), url('https://cur.cursors-4u.net/holidays/hol-2/hol148.png'), auto !important;
+}

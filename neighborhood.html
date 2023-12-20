@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Your Website Title</title>
+    <link rel="stylesheet" type="text/css" href="neighborhood.css">
+</head>
+<body>
+    <div class="header-title">Welcome to the neighborhood</div>
+    <div class="sungho-title">\Sungho/</div>
+    <div class="riwoo-title">\Riwoo/</div>
+    <div class="jaehyun-title">\Jaehyun/</div>
+    <div class="taesan-title">\Taesan/</div>
+    <div class="leehan-title">\Leehan/</div>
+    <div class="woonhak-title">\Woonhak/</div>
+    <!-- Some container for positioning if necessary -->
+<!-- Camera Image Viewer Container -->
+<div id="camera-container" class="camera-container">
+    <div id="prev-button" class="nav-button">&lt;</div>  <!-- This is for the previous image -->
+    <img id="changeable-image" src="bndcam/IMG_0089.JPG" alt="Displayed Image" class="changeable-image"/>
+    <div id="next-button" class="nav-button">&gt;</div>  <!-- This is for the next image -->
+    <img src="bndcam.png" alt="Camera Border" class="camera-border"/>
+</div>
+
+<img src="book.PNG" alt="Pink Book" id="pink-book" style="cursor: pointer;" onclick="toggleFlipBook(true)" />
+
+<!-- Flipbook Iframe Container -->
+<div id="flipbook-container" style="display: none; position: fixed; left: 50%; top: 50%; transform: translate(-50%, -50%); z-index: 1000;">
+    <iframe allowfullscreen="allowfullscreen" scrolling="no" class="fp-iframe" style="border: 0px solid transparent; width: 600px; height: 400px;" src="https://heyzine.com/flip-book/9074c026b7.html"></iframe>
+    <span style="position: absolute; top: 0; right: 0; cursor: pointer; font-size: 24px;" onclick="toggleFlipBook(false)">❌</span>
+</div>
+
+<!-- This will be placed in the top-left corner of your second page -->
+<a href="boysserenade.html" id="back-to-home" style="position: absolute; top: 20px; left: 20px; cursor: pointer; font-size: 60px; text-decoration: none; color: black;">
+    🏠⬅️
+  </a>
+  
+    <div id="clickable-icons1">
+    <img id="icon1" src="members/sungho.PNG" alt="Icon 1" onclick="showImage('key.PNG')" />
+    </div>
+    <div id="clickable-icons2">
+    <img id="icon2"src="members/riwoo.PNG" alt="Icon 2" onclick="showImage('key.PNG')" />
+    </div>
+    <div id="clickable-icons3">
+    <img id="icon3"src="members/jaehyun.PNG" alt="Icon 3" onclick="showImage('key.PNG')" />
+    </div>
+    <div id="clickable-icons4">
+    <img id="icon4"src="members/taesan.PNG" alt="Icon 4" onclick="showImage('key.PNG')" />
+    </div>
+    <div id="clickable-icons5">
+    <img id="icon5"src="members/leehan.PNG" alt="Icon 5" onclick="showImage('key.PNG')" />
+    </div>
+    <div id="clickable-icons6">
+    <img id="icon6"src="members/woonhak.PNG" alt="Icon 6" onclick="showImage('key.PNG')" />
+    </div>  
+
+
+<!-- Placeholder for the image to be displayed -->
+<div id="image-display" style="display: none;">
+    <img src="" alt="Displayed Image" id="displayed-image" />
+    <!-- Close button for the displayed image -->
+    <span onclick="hideImage()">❌</span>
+</div>
+
+  
+  
+
+
+
+<!-- Rest of your content -->   
+<script src="neighborhood.js"></script>
+</body>
+</html>

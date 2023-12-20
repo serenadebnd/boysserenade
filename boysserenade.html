@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Your Website Title</title>
+    <link rel="stylesheet" type="text/css" href="boysserenade.css">
+</head>
+<body>
+    <div class="header-title">BOY'S SERENADE.COM</div>
+    <div class="visit-title">Come visit the boys!</div>
+    <div class="days-title">Days with BOYNEXTDOOR</div>
+    <div class="TV-title">\ Watch the boys! /</div>
+    <div class="key-title">Onedoor</div>
+    <div class="music-title">Music</div>
+    <div class="sns-title">SNS</div>
+    <a href="neighborhood.html" class="clickable-house">
+        <img src="house.PNG" alt="House">
+    </a>
+    <div id="day-counter"></div>
+    
+ <!-- Trigger to open the TV -->
+ <img src="TV.PNG" alt="Open TV Popup" id="popup-trigger" onclick="toggleTvPopup(true)">
+
+<!-- TV Popup -->
+<div id="tv-popup" class="popup-container" style="display:none;">
+    <!-- TV Border (initially set to first image) -->
+    <img id="tv-border" src="bndtv3.PNG" alt="TV Border" class="tv-border">
+    <!-- Embedding the video, initially hidden -->
+    <video id="video-player" style="display:none;" controls>
+        <source src="" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <!-- Close button -->
+    <span class="close-btn" onclick="toggleTvPopup(false)">&times;</span>
+</div>
+
+<!-- Hamburger Button -->
+<div id="hamburger-button" class="hamburger-button" style="display: none;">
+    ☰
+</div>
+
+</div>
+<div id="video-sidebar" class="video-sidebar" style="display: none;">
+    <!-- MV Category -->
+    
+    <h3>MV</h3>
+    <ul>
+        <li onclick="changeVideo('bndtv/bily.mp4')">But I Like You MV</li>
+        <li onclick="changeVideo('bndtv/ono.mp4')">One and Only MV</li>
+        <li onclick="changeVideo('bndtv/serenade.mp4')">Serenade MV</li>
+        <li onclick="changeVideo('bndtv/bs.mp4')">But Sometimes MV</li>
+        <li onclick="changeVideo('bndtv/ablv.mp4')">ABCDLOVE MV</li>
+    </ul>
+    <!-- Stages Category -->
+    <h3>Stages</h3>
+    <ul>
+        <li onclick="changeVideo('bndtv/bilys.mp4')">But I Like You Stage</li>
+        <li onclick="changeVideo('bndtv/onos.mp4')">One and Only Stage</li>
+        <li onclick="changeVideo('bndtv/serenades.mp4')">Serenade Stage</li>
+        <li onclick="changeVideo('bndtv/cryings.mp4')">Crying Stage</li>
+        <li onclick="changeVideo('bndtv/bss.mp4')">But Sometimes Stage</li>
+        <li onclick="changeVideo('bndtv/ablvs.mp4')">ABCDLOVE Stage</li>
+    </ul>
+
+    <h3>FUNNEXTDOOR</h3>
+    <ul>
+        <li onclick="changeVideo('bndtv/fnd1.mp4')">FUNNEXTDOOR EP1</li>
+        <li onclick="changeVideo('bndtv/fnd2.mp4')">FUNNEXTDOOR EP2</li>
+        <li onclick="changeVideo('bndtv/fnd3.mp4')">FUNNEXTDOOR EP3</li>
+        <li onclick="changeVideo('bndtv/fnd4.mp4')">FUNNEXTDOOR EP4</li>
+        <li onclick="changeVideo('bndtv/fnd5.mp4')">FUNNEXTDOOR EP5</li>
+        <li onclick="changeVideo('bndtv/fnd6.mp4')">FUNNEXTDOOR EP6</li>
+    </ul>
+    <h3>Fanchant</h3>
+    <ul>
+        <li onclick="changeVideo('bndtv/bilyf.mp4')">But I Like You Fanchant</li>
+        <li onclick="changeVideo('bndtv/onof.mp4')">One and Only Fanchant</li>
+        <li onclick="changeVideo('bndtv/sf.mp4')">Serenade Fanchant</li>
+        <li onclick="changeVideo('bndtv/cryingf.mp4')">Crying Fanchant</li>
+        <li onclick="changeVideo('bndtv/bsf.mp4')">But Sometimes Fanchant</li>
+    </ul>
+</div>
+
+<!-- Clickable images for folders -->
+<div id="clickable-key-container">
+    <img src="key.PNG" alt="Key" onclick="toggleFolder('key-folder')" />
+</div>
+<div id="clickable-lock-container">
+    <img src="music.PNG" alt="Music" onclick="toggleFolder('music-folder')" />
+</div>
+<div id="clickable-sns-container">
+    <img src="sns.PNG" alt="SNS" onclick="toggleFolder('sns-folder')" />
+</div>
+
+<!-- Folders with close buttons -->
+<div id="key-folder" class="folder" style="display: none;">
+    <span class="folder-close-button" onclick="toggleFolder('key-folder')">💔</span>
+    <img src="keyfolder.PNG" alt="Key Folder" />
+    <!-- Subfolder inside the key folder -->
+    <div id="key-subfolder" class="subfolder" style="display: none;">
+        <span class="subfolder-close-button" onclick="toggleSubfolder('key-subfolder', false)">❌</span>
+        <img src="vote.PNG" alt="Vote Folder" />
+    </div>
+
+    <!-- Icons inside key folder -->
+    <div class="icon-dock">
+        <!-- Example: Icon that opens the subfolder -->
+        <img src="icon-to-open-subfolder.png" alt="Open Subfolder" onclick="toggleSubfolder('key-subfolder', true)">
+        <!-- Other icons -->
+    </div>
+</div>
+<div id="music-folder" class="folder" style="display: none;">
+    <span class="folder-close-button" onclick="toggleFolder('music-folder')">💔</span>
+    <img src="musicfolder.PNG" alt="Music Folder" />
+    <div class="spotify-dock">
+        <a href="https://open.spotify.com/artist/4hnHLgMSOiqERWBL4jINP1" target="_blank">
+            <img src="sns/spotify.png" alt="Spotify Icon">
+        </a>
+    </div>
+    <div class="applemusic-dock">
+        <a href="https://music.apple.com/us/artist/boynextdoor/1687612559" target="_blank">
+            <img src="sns/applemusic.png" alt="applemusic Icon">
+        </a> 
+    </div>
+    <div class="youtubemusic-dock">
+        <a href="https://music.youtube.com/channel/UCIwE33gDkznkuot-fU-WcOg" target="_blank">
+            <img src="sns/youtubemusic.png" alt="youtubemusic Icon">
+        </a> 
+    </div>
+    <div class="melon-dock">
+        <a href="https://www.melon.com/artist/song.htm?artistId=3458776" target="_blank">
+            <img src="sns/melon.png" alt="melon Icon">
+        </a> 
+    </div>
+</div>
+<div id="sns-folder" class="folder" style="display: none;">
+    <span class="folder-close-button" onclick="toggleFolder('sns-folder')">💔</span>
+    <img src="snsfolder.PNG" alt="SNS Folder" />
+    <div class="facebook-dock">
+        <a href="https://www.facebook.com/BOYNEXTDOOR.official" target="_blank">
+            <img src="sns/facebook.png" alt="Facebook Icon">
+        </a>
+    </div>
+    <div class="twitter-dock">
+        <a href="https://twitter.com/BOYNEXTDOOR_KOZ" target="_blank">
+            <img src="sns/twitter.png" alt="Twitter Icon">
+        </a> 
+    </div>
+    <div class="twitterm-dock">
+        <a href="https://twitter.com/BOYNEXTDOOR_twt" target="_blank">
+            <img src="sns/twitter.png" alt="Twitter Icon">
+        </a> 
+    </div>
+    <div class="instagram-dock">
+        <a href="https://www.instagram.com/boynextdoor_official/" target="_blank">
+            <img src="sns/instagram1.png" alt="Instagram Icon">
+        </a> 
+    </div>
+    <div class="youtube-dock">
+        <a href="https://www.youtube.com/@BOYNEXTDOOR_official" target="_blank">
+            <img src="sns/youtube.png" alt="YouTube Icon">
+        </a> 
+    </div>
+    <div class="tiktok-dock">
+        <a href="https://www.tiktok.com/@boynextdoor_official" target="_blank">
+            <img src="sns/tiktok.png" alt="TikTok Icon">
+        </a> 
+    </div>
+    <div class="weverse-dock">
+        <a href="https://weverse.io/boynextdoor" target="_blank">
+            <img src="sns/weverse.png" alt="Weverse Icon">  
+        </a> 
+    </div>
+    <div class="weibo-dock">
+        <a href="https://weibo.com/u/7832571640" target="_blank">
+            <img src="sns/weibo.png" alt="Weibo Icon">  
+        </a> 
+    </div>
+</div>
+
+
+
+
+    <!-- Rest of your content -->   
+    <script src="boysserenade.js"></script>
+
+</body>
+</html>

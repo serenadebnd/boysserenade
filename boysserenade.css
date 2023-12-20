@@ -1,0 +1,436 @@
+body, html {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    /* Replace 'your-image.jpg' with the path to your image */
+    
+    /* Full screen */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+@font-face {
+    font-family: 'Romantic'; /* Give your font a name to reference it by */
+    src: url('fonts/ROMANTIC.TTF') format('truetype'); /* Adjust the path as necessary */
+}
+
+@font-face {
+    font-family: 'violetta'; /* Give your font a name to reference it by */
+    src: url('fonts/violetta.ttf') format('truetype'); /* Adjust the path as necessary */
+}
+@font-face {
+    font-family: 'LOTTERIACHAB';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/LOTTERIACHAB.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Mutter'; /* Give your font a name to reference it by */
+    src: url('fonts/MutterKrauseNormal.ttf') format('truetype'); /* Adjust the path as necessary */
+}
+
+.header-title {
+    font-family: 'Romantic', sans-serif; /* Use the name you defined in @font-face */
+    font-size: 100px; /* Adjust the size as needed */
+    color: #47afd9; /* Change the color as needed */
+    position: absolute;
+    top: 20px; /* Adjust the position as needed */
+    left: 20px;
+    z-index: 10;
+}
+.clickable-house {
+    position: fixed;
+    bottom: 115px;
+    left: -115px;
+    z-index: 5; /* Ensure it's above other elements if necessary */
+}
+
+.clickable-house img {
+    width: 950px; /* This will set the width of the image */
+    height: auto; /* This will ensure the height scales proportionally */
+
+}
+
+.visit-title {
+    font-family: 'violetta', sans-serif; /* Use the font you defined in @font-face */
+    font-size: 60px; /* Adjust the size as needed */
+    color: transparent; /* Make the text fill transparent */
+    -webkit-text-stroke: 2px #4473ab; /* Stroke width and color */
+    text-stroke: 2px #4473ab; /* Standard syntax, though may not be supported in all browsers */
+    position: absolute;
+    bottom: 60px; /* Adjust the position as needed */
+    left: 50px;
+    z-index: 10;
+}
+
+.days-title {
+    font-family: 'LOTTERIACHAB', sans-serif; /* Use the name you defined in @font-face */
+    font-size: 30px; /* Adjust the size as needed */
+    color: #4373ab; /* Change the color as needed */
+    position: absolute;
+    top: 360px; /* Adjust the position as needed */
+    right: 390px;
+    z-index: 10;
+}
+
+
+#day-counter {
+    font-family: 'LOTTERIACHAB', sans-serif; /* Use the name you defined in @font-face */
+    font-size: 160px; /* Adjust the size as needed */
+    color: #6494ce; /* Change the color as needed */
+    position: absolute;
+    top: 160px; /* Adjust the position as needed */
+    right: 520px;
+    z-index: 10;
+}
+
+
+.TV-title {
+    font-family: 'Mutter', sans-serif; /* Use the name you defined in @font-face */
+    font-size: 35px; /* Adjust the size as needed */
+    color: #13b6fc; /* Change the color as needed */
+    position: absolute;
+    bottom: 330px; /* Adjust the position as needed */
+    right: 250px;
+    z-index: 10;
+    transform: rotate(-10deg);
+}
+
+.popup-container {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: none; /* Hidden initially */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+
+
+.tv-border {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 900px; /* Adjust based on your design */
+    height: auto;
+    z-index: 1200;
+}
+
+
+#popup-trigger {
+    position: fixed; /* Stay in the same place even when the page scrolls */
+    bottom: -50px; /* 20px from the bottom of the viewport */
+    right: 20px; /* 20px from the right of the viewport */
+    width: 465px; /* Set the width as needed */
+    height: auto; /* This will maintain the aspect ratio of the image */
+    cursor: pointer; /* Indicates the image is clickable */
+    z-index: 10; /* Ensures the image is above other page elements */
+    transform: rotate(10deg);
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    color: white;
+    font-size: 24px;
+    z-index: 1010;
+}
+
+#video-player {
+    position: absolute;
+    top: 40%;
+    left: 50.3%;
+    transform: translate(-50%, -50%);
+    width: 494px;  /* Adjust based on the size of your popup */
+    height: 315px; /* Adjust based on the size of your popup */
+    z-index: 1300; /* Above the TV border image */
+}
+
+.video-sidebar {
+    padding-top: 40px;
+    padding-bottom: 20px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 210px;
+    height: 100%;
+    background-color: #333;
+    color: #fff;
+    overflow-y: auto;
+    z-index: 1400;
+    display: none; /* Initially hidden */
+    background-color: #fff; /* Change color to white */
+    color: #333;
+}
+.video-sidebar ul {
+    padding-top: 10px; /* Adds space at the top of the list */
+    /* Other existing styles */
+}
+
+.video-sidebar li {
+    padding: 5px; /* Adjust as needed */
+    font-family: 'Mutter', sans-serif; /* Change to your preferred font */
+    color:w #4751d9;
+}
+.video-sidebar h3 {
+    margin-left: 10px;
+    margin-bottom: 0px; /* Reduce the space below each title */
+    font-family: 'LOTTERIACHAB', sans-serif; /* Change to your preferred font */
+    color: #47afd9;
+    font-size: 22px;
+}
+.video-sidebar li:last-child {
+    margin-bottom: 100px; /* Add more margin to the last item */
+}
+
+.hamburger-button {
+    position: fixed;
+    top: 10px; /* Adjust as needed */
+    left: 10px; /* Adjust as needed */
+    font-size: 30px; /* Adjust as needed */
+    cursor: pointer;
+    z-index: 1500; /* Above the sidebar and other content */
+    /* Add display: none; here if not inline */
+}
+.folder {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    width: 120%;
+    height: auto;
+    display: none; /* Hidden initially */
+}
+
+.folder img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.folder-close-button {
+    position: absolute;
+    top: 650px;
+    right: 1160px;
+    font-size: 40px;
+    cursor: pointer;
+    z-index: 1100;
+}
+
+.facebook-dock {
+    position: absolute;
+    top: 720px;
+    right: 1100px;
+    width: 100px;
+    height: auto;
+    cursor: pointer;
+    z-index: 1100;
+}
+
+.twitter-dock {
+    position: absolute;
+    top: 720px;
+    right: 970px;
+    width: 102px;
+    height: auto;
+    cursor: pointer;
+    z-index: 1100;
+}
+
+.twitterm-dock {
+    position: absolute;
+    top: 720px;
+    right: 840px;
+    width: 102px;
+    height: auto;
+    cursor: pointer;
+    z-index: 1100;
+}
+
+.instagram-dock {
+    position: absolute;
+    top: 720px;
+    right: 710px;
+    width: 104px;
+    height: auto;
+    cursor: pointer;
+    z-index: 1100;
+}
+
+.youtube-dock {
+    position: absolute;
+    top: 720px;
+    right: 580px;
+    width: 104px;
+    height: auto;
+    cursor: pointer;
+    z-index: 1100;
+}
+
+.tiktok-dock {
+    position: absolute;
+    top: 850px;
+    right: 1100px;
+    width: 100px;
+    height: auto;
+    cursor: pointer;
+    z-index: 1100;
+}
+.weverse-dock {
+    position: absolute;
+    top: 838px;
+    right: 955px;
+    width: 125px;
+    height: auto;
+    cursor: pointer;
+    z-index: 1100;
+}
+
+.weibo-dock {
+    position: absolute;
+    top: 855px;
+    right: 844px;
+    width: 90px;
+    height: auto;
+    cursor: pointer;
+    z-index: 1100;
+}
+.spotify-dock {
+    position: absolute;
+    top: 720px;
+    right: 1100px;
+    width: 100px;
+    height: auto;
+    cursor: pointer;
+    z-index: 1100;
+}
+
+.applemusic-dock {
+    position: absolute;
+    top: 712px;
+    right: 965px;
+    width: 117px;
+    height: auto;
+    cursor: pointer;
+    z-index: 1100;
+}
+
+.youtubemusic-dock {
+    position: absolute;
+    top: 720px;
+    right: 840px;
+    width: 102px;
+    height: auto;
+    cursor: pointer;
+    z-index: 1100;
+}
+.melon-dock {
+    position: absolute;
+    top: 725px;
+    right: 710px;
+    width: 90px;
+    height: auto;
+    cursor: pointer;
+    z-index: 1100;
+}
+#clickable-key-container {
+    position: fixed;
+    right: -25px; /* Adjust the distance from the right side of the viewport */
+    top: 0px; /* Adjust the distance from the top of the viewport */
+    transform: rotate(35deg); /* Optional rotation, adjust as needed */
+    z-index: 100;
+}
+
+#clickable-lock-container {
+    position: fixed;
+    right: 13px; /* Adjust as needed */
+    top: 180px; /* Adjust as needed */
+    transform: rotate(5deg); /* Optional rotation */
+    z-index: 100;
+}
+
+#clickable-sns-container {
+    position: fixed;
+    right: 45px; /* Adjust as needed */
+    top: 350px; /* Adjust as needed */
+    transform: rotate(20deg); /* Optional rotation */
+    z-index: 100;
+}
+
+#clickable-key-container img{
+    width: 200px; /* Adjust the width as needed */
+    height: auto; /* Maintain aspect ratio */
+    cursor: pointer;
+}
+#clickable-lock-container img{
+    width: 150px; /* Adjust the width as needed */
+    height: auto; /* Maintain aspect ratio */
+    cursor: pointer;
+}
+#clickable-sns-container img{
+    width: 85px; /* Adjust the width as needed */
+    height: auto; /* Maintain aspect ratio */
+    cursor: pointer;
+}
+.key-title {
+    font-family: 'Mutter', sans-serif; /* Use the name you defined in @font-face */
+    font-size: 21px; /* Adjust the size as needed */
+    color: #1f599f; /* Change the color as needed */
+    position: absolute;
+    top: 145px; /* Adjust the position as needed */
+    right: 45px;
+    z-index: 10;
+ }
+ .music-title {
+    font-family: 'Mutter', sans-serif; /* Use the name you defined in @font-face */
+    font-size: 21px; /* Adjust the size as needed */
+    color: #1f599f; /* Change the color as needed */
+    position: absolute;
+    top: 323px; /* Adjust the position as needed */
+    right: 60px;
+    z-index: 10;
+ }
+ .sns-title {
+    font-family: 'Mutter', sans-serif; /* Use the name you defined in @font-face */
+    font-size: 21px; /* Adjust the size as needed */
+    color: #1f599f; /* Change the color as needed */
+    position: absolute;
+    top: 480px; /* Adjust the position as needed */
+    right: 70px;
+    z-index: 10;
+ }
+  
+ .subfolder {
+    position: absolute;  /* Positioned inside the key folder */
+    top: 50%;  /* Adjust as needed */
+    left: 50%; /* Adjust as needed */
+    transform: translate(-50%, -50%);
+    z-index: 1100;  /* Ensure it appears above the key folder content */
+    width: 50%;  /* Adjust size as needed */
+    height: auto;
+    background-color: white;  /* Or any color you prefer */
+    display: none;  /* Hidden initially */
+}
+
+.subfolder-close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    z-index: 1200;
+}
+* {
+    cursor: url('https://cur.cursors-4u.net/holidays/hol-2/hol148.ani'), url('https://cur.cursors-4u.net/holidays/hol-2/hol148.png'), auto !important;
+}
